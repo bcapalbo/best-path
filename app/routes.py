@@ -1,12 +1,9 @@
-import csv, sys
+import csv
 
 class Routes:
-
     available_routes = []
 
-    def __init__(self):
-        file_name = sys.argv[1]
-
+    def __init__(self, file_name):
         with open(file_name, 'rb') as file:
             reader = csv.reader(file)
             try:

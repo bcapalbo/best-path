@@ -1,6 +1,9 @@
+from routes import Routes
+
 class BestPath:
     def start(self):
         #carrega arquivo csv
+        routes = Routes()
         #le entrada
         #decide melhor rota
         #retorna a melhor rota

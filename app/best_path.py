@@ -10,7 +10,10 @@ class BestPath:
 
         goal = parse_origin_goal(goal= sys.argv[2])
 
-        best_path = routes.get_cheapest_path(goal[0], goal[1])
+        try:
+            best_path = routes.get_cheapest_path(goal[0], goal[1])
+        except csv.Error as e:
+            sys.exit('%s' % (e))
 
         formatted_best_path = format_output(best_path)
         print('best route: ' + formatted_best_path)
@@ -35,4 +38,5 @@ def main():
     application.start()
 
 if __name__ == '__main__':
+    sys.tracebacklimit = 0
     main()

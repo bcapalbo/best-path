@@ -31,6 +31,10 @@ class Routes:
 
     def get_cheapest_path(self, start, goal):
         possible_paths = list(self.get_possible_paths(start, goal))
+
+        if not possible_paths:
+            raise Exception('Dead end start was found.')
+
         routes_price = []
 
         for option, path in enumerate(possible_paths):

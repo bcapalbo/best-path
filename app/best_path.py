@@ -14,6 +14,8 @@ class BestPath:
         best_path = routes.get_cheaper_path(goal[0], goal[1])
 
         #retorna a melhor rota
+        formatted_best_path = format_output(best_path)
+        print('best route: ' + formatted_best_path)
 
 def main():
     application = BestPath()

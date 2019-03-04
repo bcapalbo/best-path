@@ -1,6 +1,8 @@
 # Best Path Application
 
-This is an application that give the cheapest route given pre-fixed route prices.
+This is an application that gives the cheapest route given pre-fixed route prices. It was build using Python2.7 as cli application. Must be inserted two parameters that will provide a list of routes, where is the start place and where is the goal place. Was used Dijkstra's algorithm to find the best option. A community version of this algorithm was used as base to implements the code that fits with the proposed problem.
+
+[The problem to solve](https://github.com/bcapalbo/best-path/blob/develop/SPECIFICATION.md)
 
 ## Getting Started
 

@@ -30,6 +30,12 @@ class TestRoutes:
 
         assert list(possible_paths) == expected
 
+        expected = []
+
+        possible_paths = routes.get_possible_paths('CDG', 'GRU')
+
+        assert list(possible_paths) == expected
+
     def test_get_cheapest_path(self):
         expected = ['GRU', 'BRC', 'SCL', 'ORL', 'CDG']
 

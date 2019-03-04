@@ -4,18 +4,16 @@ import sys
 
 class BestPath:
     def start(self):
-        #carrega arquivo csv
         routes = Routes(file_name= sys.argv[1])
 
-        #le entrada
         goal = parse_origin_goal(goal= sys.argv[2])
 
-        #decide melhor rota
         best_path = routes.get_cheaper_path(goal[0], goal[1])
 
-        #retorna a melhor rota
         formatted_best_path = format_output(best_path)
         print('best route: ' + formatted_best_path)
+
+        sys.exit(0)
 
 def main():
     application = BestPath()

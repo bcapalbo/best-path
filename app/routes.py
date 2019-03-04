@@ -1,16 +1,6 @@
-import csv
-
 class Routes:
-    available_routes = []
-
-    def __init__(self, file_name):
-        with open(file_name, 'rb') as file:
-            reader = csv.reader(file)
-            try:
-                for row in reader:
-                    self.available_routes.append(row)
-            except csv.Error as e:
-                sys.exit('file %s, row %d: %s' % (file_name, reader.line_num, e))
+    def __init__(self, csv_content):
+        self.available_routes = csv_content
 
     def get_available_routes_graph(self):
         graph = {}
@@ -39,7 +29,7 @@ class Routes:
                 else:
                     queue.append((next, path + [next]))
 
-    def get_cheaper_path(self, start, goal):
+    def get_cheapest_path(self, start, goal):
         possible_paths = list(self.get_possible_paths(start, goal))
         routes_price = []
 
@@ -48,9 +38,9 @@ class Routes:
             for i in range(len(path)-1):
                 routes_price[option] += self.get_route_price(path[i], path[i+1])
 
-        cheaper_path = routes_price.index(min(routes_price))
+        cheapest_path = routes_price.index(min(routes_price))
 
-        return possible_paths[cheaper_path]
+        return possible_paths[cheapest_path]
 
     def get_route_price(self, place_a, place_b):
         price_table = {}

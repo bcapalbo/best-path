@@ -8,7 +8,7 @@ This is an application that give the cheapest route given pre-fixed route prices
 
 Before start, you must to have installed in your machine this prerequisites:
 * **[Python 2.7](https://www.python.org/)** -
-To install Python, [see official documentation](https://wiki.python.org/moin/BeginnersGuide/Download) according to you operational system.
+To install Python, [see official documentation](https://wiki.python.org/moin/BeginnersGuide/Download) according to you OS.
 
 ## Installing
 
@@ -31,6 +31,16 @@ To run the application you must to pass two parameters:
 **Example**
 ```
 $ python app/best_path.py input-routes.csv GRU-CDG
+```
+
+### Running unit tests
+
+To run unit tests, you will need to install pytest package, [see official documentation](https://docs.pytest.org/en/latest/getting-started.html#getstarted) according to you OS.
+
+After pytest installation, just run the following command:
+
+```
+$ pytest
 ```
 
 ## Built With

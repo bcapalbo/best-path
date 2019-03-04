@@ -23,7 +23,7 @@ Caso desejemos viajar de **GRU** para **CDG** existem as seguintes rotas:
 1. GRU - BRC - SCL - ORL - CDG ao custo de **$53**
 2. GRU - ORL - CGD ao custo de **$64**
 3. GRU - CDG ao custo de **$75**
-4. GRU - SCL - ORL - CDG ao cusdo de **$48**
+4. GRU - SCL - ORL - CDG ao custo de **$48**
 
 O melhor preço é da rota **4** logo, o output da consulta deve ser **CDG - SCL - ORL - CDG**.
 
@@ -32,11 +32,11 @@ A execução do programa se dará por linha de comando onde o primeiro argumento
 
 ```shell
 $ mysolution input-routes.csv GRU-CGD
-  best route: CDG - SCL - ORL - CDG
+  best route: GRU - SCL - ORL - CDG
 ```
 
 ## Recomendações ##
-Para uma melhor fluides da nossa conversa, atente-se aos seguintes pontos:
+Para uma melhor fluidez da nossa conversa, atente-se aos seguintes pontos:
 
 * Estruture sua aplicação como se produtiva fosse,
 * Permita evoluções na solução para discussão nos próximos passos,

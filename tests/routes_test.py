@@ -2,42 +2,12 @@ import sys, os
 sys.path.append(os.path.realpath(os.path.dirname(__file__)+"/../app"))
 import pytest
 from routes import Routes
+from collections import deque
 
 class TestRoutes:
 
-    def test_get_possible_paths(self):
-        expected = [
-            ['GRU', 'CDG'],
-            ['GRU', 'ORL', 'CDG'],
-            ['GRU', 'SCL', 'ORL', 'CDG'],
-            ['GRU', 'BRC', 'SCL', 'ORL', 'CDG']
-        ]
-
-        csv_content_mock = [
-            ['GRU', 'BRC', '10'],
-            ['BRC', 'SCL', '5'],
-            ['GRU', 'CDG', '75'],
-            ['GRU', 'SCL', '20'],
-            ['GRU', 'ORL', '56'],
-            ['ORL', 'CDG', '53'],
-            ['ORL', 'CDG', '8'],
-            ['SCL', 'ORL', '20']
-        ]
-
-        routes = Routes(csv_content_mock)
-
-        possible_paths = routes.get_possible_paths('GRU', 'CDG')
-
-        assert list(possible_paths) == expected
-
-        expected = []
-
-        possible_paths = routes.get_possible_paths('CDG', 'GRU')
-
-        assert list(possible_paths) == expected
-
     def test_get_cheapest_path(self):
-        expected = ['GRU', 'BRC', 'SCL', 'ORL', 'CDG']
+        expected = deque(['GRU', 'BRC', 'SCL', 'ORL', 'CDG'])
 
         csv_content_mock = [
             ['GRU', 'BRC', '10'],
@@ -56,33 +26,17 @@ class TestRoutes:
 
         assert cheapest_path == expected
 
-    def test_get_route_price(self):
-        expected = 75
-
-        csv_content_mock = [
-            ['GRU', 'BRC', '10'],
-            ['BRC', 'SCL', '5'],
-            ['GRU', 'CDG', '75'],
-            ['GRU', 'SCL', '20'],
-            ['GRU', 'ORL', '56'],
-            ['ORL', 'CDG', '53'],
-            ['ORL', 'CDG', '8'],
-            ['SCL', 'ORL', '20']
-        ]
-
-        routes = Routes(csv_content_mock)
-
-        route_price = routes.get_route_price('GRU', 'CDG')
-
-        assert route_price == expected
-
     def test_get_available_routes_graph(self):
-        expected = {
-            'SCL': set(['ORL']),
-            'ORL': set(['CDG']),
-            'GRU': set(['SCL', 'ORL', 'CDG', 'BRC']),
-            'BRC': set(['SCL'])
-        }
+        expected = [
+            ('GRU', 'BRC', '10'),
+            ('BRC', 'SCL', '5'),
+            ('GRU', 'CDG', '75'),
+            ('GRU', 'SCL', '20'),
+            ('GRU', 'ORL', '56'),
+            ('ORL', 'CDG', '53'),
+            ('ORL', 'CDG', '8'),
+            ('SCL', 'ORL', '20')
+        ]
 
         csv_content_mock = [
             ['GRU', 'BRC', '10'],
